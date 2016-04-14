@@ -41,6 +41,14 @@ class BlocksController < ApplicationController
       end
     end
 
+    def destroy
+      @block = Block.find(params[:id])
+      @block.destroy
+
+      flash[:notice] = "Block has been deleted."
+      redirect_to blocks_path
+    end
+
 	private
 
 	def block_params

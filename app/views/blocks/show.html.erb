@@ -2,5 +2,11 @@
 
 <%= link_to "Edit Block", edit_block_path(@block) %>
 
+<%= link_to "Delete Block",
+    block_path(@block),
+    method: :delete,
+    data: { confirm: "Are you sure you want to delete this block?" }
+%>
+
 <h1><%= @block.day %></h1>
 <p><%= @block.time %></p>
