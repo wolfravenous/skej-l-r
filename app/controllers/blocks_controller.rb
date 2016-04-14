@@ -1,4 +1,6 @@
 class BlocksController < ApplicationController
+  before_action :set_block, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@blocks = Block.all
 	end
@@ -20,15 +22,15 @@ class BlocksController < ApplicationController
 	end
 
     def show
-      @block = Block.find(params[:id])
+      
     end
 
     def edit
-      @block = Block.find(params[:id])
+      
     end
 
     def update
-      @block = Block.find(params[:id])
+      
       
       if @block.update(block_params)
 
@@ -42,7 +44,7 @@ class BlocksController < ApplicationController
     end
 
     def destroy
-      @block = Block.find(params[:id])
+      
       @block.destroy
 
       flash[:notice] = "Block has been deleted."
@@ -54,4 +56,12 @@ class BlocksController < ApplicationController
 	def block_params
 		params.require(:block).permit(:day, :time)
 	end
+
+  def set_block
+    @block = Block.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The block you were looking for could not be found."
+    redirect_to blocks_path
+  end
+
 end
