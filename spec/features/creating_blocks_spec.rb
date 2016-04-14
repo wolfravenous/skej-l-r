@@ -11,5 +11,11 @@ RSpec.feature  "Users can create new blocks" do
 		click_button "Create Block"
 
 		expect(page).to have_content "Block has been created."
+
+		block = Block.find_by(day: "Monday AM")
+		expect(page.current_url).to eq block_url(block)
+
+		title = "Monday AM - Blocks - Skejələr"
+		expect(page).to have_title title
 	end
 end
