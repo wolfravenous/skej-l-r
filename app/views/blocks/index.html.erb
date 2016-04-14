@@ -1,1 +1,10 @@
+<h1>Blocks</h1>
+
 <%= link_to "New Block", new_block_path %>
+
+<div id="blocks">
+  <% @blocks.each do |block| %>
+    <h2><%= link_to block.day, block %></h2>
+    <p><%= block.time %></p>
+  <% end %>
+</div>

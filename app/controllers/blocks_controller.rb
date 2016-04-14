@@ -1,5 +1,6 @@
 class BlocksController < ApplicationController
 	def index
+		@blocks = Block.all
 	end
 
 	def new
@@ -7,19 +8,37 @@ class BlocksController < ApplicationController
 	end
 
 	def create
-  		@block = Block.new(block_params)
+  	  @block = Block.new(block_params)
 
-  		if @block.save
-    		flash[:notice] = "Block has been created."
-    		redirect_to @block
-  		else
-    		flash.now[:alert] = "Block has not been created."
-    		render "new"
-  		end
+   	  if @block.save
+     	  flash[:notice] = "Block has been created."
+        redirect_to @block
+  	  else
+     	  flash.now[:alert] = "Block has not been created."
+     	  render "new"
+  	  end
 	end
 
     def show
       @block = Block.find(params[:id])
+    end
+
+    def edit
+      @block = Block.find(params[:id])
+    end
+
+    def update
+      @block = Block.find(params[:id])
+      
+      if @block.update(block_params)
+
+        flash[:notice] = "Block has been updated."
+        redirect_to @block
+
+      else
+        flash.now[:alert] = "Block has not been updated."
+        render "edit"
+      end
     end
 
 	private

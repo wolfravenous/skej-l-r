@@ -1,4 +1,6 @@
 <% title(@block.day, "Blocks") %>
 
+<%= link_to "Edit Block", edit_block_path(@block) %>
+
 <h1><%= @block.day %></h1>
 <p><%= @block.time %></p>
