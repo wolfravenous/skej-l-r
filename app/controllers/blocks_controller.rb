@@ -13,7 +13,8 @@ class BlocksController < ApplicationController
     		flash[:notice] = "Block has been created."
     		redirect_to @block
   		else
-    		# nothing, yet
+    		flash.now[:alert] = "Block has not been created."
+    		render "new"
   		end
 	end
 
