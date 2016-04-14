@@ -1,6 +1,11 @@
-<h1>Blocks</h1>
+<header>
+  <h1>Blocks</h1>
 
-<%= link_to "New Block", new_block_path %>
+  <ul class="actions">
+    <li><%= link_to "New Block", new_block_path, class: "new" %></li>
+  </ul>
+</header>
+
 
 <div id="blocks">
   <% @blocks.each do |block| %>

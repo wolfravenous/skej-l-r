@@ -1,27 +1,6 @@
-<%= form_for(block) do |f| %>
+<%= simple_form_for(block) do |f| %>
+  <%= f.input :day %>
+  <%= f.input :time %>
 
-<% if block.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(block.errors.count, "error") %>
-    prohibited this block from being saved:</h2> 
-
-    <ul>
-      <% block.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-  <p>
-    <%= f.label :day %><br>
-    <%= f.text_field :day %>
-  </p>
-
-  <p>
-    <%= f.label :time %><br>
-    <%= f.text_field :time %>
-  </p>
-
-  <%= f.submit %>
+  <%= f.button :submit, class: "btn-primary" %>
 <% end %>
