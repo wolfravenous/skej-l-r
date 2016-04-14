@@ -1,0 +1,14 @@
+<h1>New Block</h1>
+<%= form_for(@block) do |f| %>
+  <p>
+    <%= f.label :day %><br>
+    <%= f.text_field :day %>
+  </p>
+
+  <p>
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
