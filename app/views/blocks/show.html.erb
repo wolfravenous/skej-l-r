@@ -13,4 +13,12 @@
 </header>
 
 <h1><%= @block.day %></h1>
-<p><%= @block.time %></p>
+
+<header>
+  <h2>Topics</h2>
+
+  <ul class="actions">
+    <li><%= link_to "New Topic", new_block_topic_path(@block),
+      class: "new" %></li>
+  </ul>
+</header>

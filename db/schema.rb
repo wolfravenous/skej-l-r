@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413144823) do
+ActiveRecord::Schema.define(version: 20160415030301) do
 
   create_table "blocks", force: :cascade do |t|
     t.string   "day"
@@ -19,5 +19,15 @@ ActiveRecord::Schema.define(version: 20160413144823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "block_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "topics", ["block_id"], name: "index_topics_on_block_id"
 
 end
