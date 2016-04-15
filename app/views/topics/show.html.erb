@@ -5,6 +5,11 @@
 
   <header>
     <h2><%= @topic.name %></h2>
+
+    <ul class="actions">
+      <li><%= link_to "Edit Topic", [:edit, @block, @topic],
+        class: "edit" %></li>
+    </ul>
   </header>
 
   <%= simple_format(@topic.description) %>

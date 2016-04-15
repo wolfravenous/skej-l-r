@@ -21,11 +21,18 @@ class TopicsController < ApplicationController
   def show
   end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  # end
+  def update
+    if @topic.update(topic_params)
+      flash[:notice] = "Topic has been updated."
+      redirect_to [@block, @topic]
+    else
+      flash.now[:alert] = "Topic has not been updated."
+      render "edit"
+    end
+  end
 
   # def destroy
   # end
